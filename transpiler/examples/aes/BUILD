@@ -10,26 +10,11 @@ cc_library(
 )
 
 fhe_cc_library(
-    name = "aes_tfhe",
-    src = "aes.cc",
-    hdrs = ["aes.h"],
-    num_opt_passes = 2,
-)
-
-fhe_cc_library(
     name = "aes_interpreted_tfhe",
     src = "aes.cc",
     hdrs = ["aes.h"],
     num_opt_passes = 2,
     transpiler_type = "interpreted_tfhe",
-)
-
-fhe_cc_library(
-    name = "aes_bool",
-    src = "aes.cc",
-    hdrs = ["aes.h"],
-    num_opt_passes = 2,
-    transpiler_type = "bool",
 )
 
 cc_binary(
