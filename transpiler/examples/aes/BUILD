@@ -42,17 +42,6 @@ cc_binary(
     ],
 )
 
-cc_binary(
-    name = "aes_bool_testbench",
-    srcs = ["aes_bool_testbench.cc"],
-    deps = [
-        ":aes_bool",
-        "//transpiler/data:boolean_data",
-        "@com_google_xls//xls/common/logging",
-        "@com_google_xls//xls/common/status:status_macros",
-    ],
-)
-
 cc_test(
     name = "aes_test",
     srcs = ["aes_test.cc"],
