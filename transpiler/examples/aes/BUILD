@@ -9,32 +9,11 @@ cc_library(
     hdrs = ["aes.h"],
 )
 
-fhe_cc_library(
-    name = "aes_interpreted_tfhe",
-    src = "aes.cc",
-    hdrs = ["aes.h"],
-    num_opt_passes = 2,
-    transpiler_type = "interpreted_tfhe",
-)
-
 cc_binary(
     name = "aes_tfhe_testbench",
     srcs = ["aes_tfhe_testbench.cc"],
     deps = [
         ":aes_tfhe",
-        "//transpiler/data:fhe_data",
-        "@com_google_xls//xls/common/logging",
-        "@com_google_xls//xls/common/status:status_macros",
-        "@tfhe//:libtfhe",
-    ],
-)
-
-cc_binary(
-    name = "aes_interpreted_tfhe_testbench",
-    srcs = ["aes_tfhe_testbench.cc"],
-    copts = ["-DUSE_INTERPRETED_TFHE"],
-    deps = [
-        ":aes_interpreted_tfhe",
         "//transpiler/data:fhe_data",
         "@com_google_xls//xls/common/logging",
         "@com_google_xls//xls/common/status:status_macros",
